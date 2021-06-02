@@ -10,20 +10,26 @@ raw_mhtml = mhtml_source.read() # reads data into the variable.
 
 
 
-newlinePattern = re.compile("[\r\n]+")
-kindaClean = re.sub(newlinePattern, "", raw_mhtml) # delete all newline chars
-
+newlinePattern = re.compile("[\r\n]+") # Counts \r or \n or any combination thereof as a newline pattern.
+kindaClean = re.sub(newlinePattern, "", raw_mhtml) # Delete all newline chars using the above pattern.
+#kindaClean = re.sub("<head>.*?</head>", "", kindaClean) # Delete head section
+#kindaClean = re.sub("<\!.*?>", "", kindaClean) # Delete html comments
 ## Add newlines back in by splitting at the closing tag
 #kindaClean = re.sub("><", ">\n<", kindaClean)
+kindaClean = re.sub("><", ">\n<", kindaClean)
+
+cleanedMhtml = open("Output_Files\cleanedMhtml.html","w") # "w" overwrites the file if it exists, and creates it if it doesn't.
+cleanedMhtml.write(kindaClean)
 
 # li_tag_pattern_root = "<title.*?>.*?</title.*?>"
-li_tag_pattern = "<li.*?>.*?</li.*?>"
 # print(re.search(li_tag_pattern_root, raw_mhtml, re.IGNORECASE))
 #match_results = re.search(li_tag_pattern, kindaClean, re.IGNORECASE)
 #extractedText= match_results.group()
 #extractedText = re.sub("<.*?>", "", extractedText) # Remove HTML tags
 
 cleanedLineList = [] # Remember, it's a Python list, NOT a Python array.
+
+li_tag_pattern = "<li.*?>.*?</li.*?>"
 # killTheSpans = re.compile("<span.*?></span>") # Alternatively, you could try the line below (which allows for the random "=" sign...)
 # killTheSpans = re.compile("<[span\=]{4,5}\s.*?></span>")
 killTheSpans = re.compile("<\=?s\=?p\=?a\=?n.*?>\=?<\=?/\=?s\=?p\=?a\=?n.*?>") #Seems most accurate, but also very specific.
@@ -46,7 +52,7 @@ for eachEle in kindaClean:
     cleanedLineList.append(eachEle)
     #cleanedLineList.append(re.sub("<.*?>","",(re.sub(killTheSpans, "", eachEle))))
 
-for eachEle in cleanedLineList: print(eachEle)
+#for eachEle in cleanedLineList: print(eachEle)
 
 #print(kindaClean)
 #print(extractedText)
