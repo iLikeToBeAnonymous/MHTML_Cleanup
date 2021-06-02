@@ -10,7 +10,7 @@ loaded_file = open(myDataPath + "/" + mySourceFile,"r") #open the source file
 raw_data_array = loaded_file.readlines() # data is read into the raw_data array. Each line is an array element.
 
 whitespaceSplit = [] # Initialize an empty array
-
+extraWhitespcPtrn = re.compile('(\"|\').*?(\"|\')')
 for eachRow in raw_data_array:
     eachRow = re.sub("\s+"," ",eachRow) # remove double/triple etc spaces and replace with a single space.
     #Section to check for and remove beginning and ending quotes.
@@ -19,9 +19,16 @@ for eachRow in raw_data_array:
     #if eachRow[len(eachRow)-1] == '"':
     #    eachRow = eachRow[1:] # removes the first double-quote by returning the string from the 2nd char to the end of the string.
     # Above two "if" statements are replaced by a more versatile version:
-    if re.match('(\"|\').*?(\"|\')', eachRow): # https://www.guru99.com/python-regular-expressions-complete-tutorial.html#5
+    if re.match(extraWhitespcPtrn, eachRow): # https://www.guru99.com/python-regular-expressions-complete-tutorial.html#5
         eachRow = eachRow[1:(len(eachRow)-2)] # removes the first and last quotes by returning the string from the 2nd char to the 2nd from end of the string.
     whitespaceSplit.append(eachRow.split(" ")) # split each row into an array delimted by whitespace
+
+#####################################################################################
+###     THE PYTHON DICTIONARY SEEMS EQUIVALENT TO THE JAVASCRIPT MAP() OBJECT     ###
+###    https://www.w3schools.com/python/python_dictionaries.asp                   ###
+###    https://realpython.com/python-json/                                        ###
+###    https://www.geeksforgeeks.org/how-to-convert-python-dictionary-to-json/    ###
+#####################################################################################
 
 
 #myStrTemplate = 'Name: {}\nHas a length of {}' # https://www.w3schools.com/python/python_string_formatting.asp
