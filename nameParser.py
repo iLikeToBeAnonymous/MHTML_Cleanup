@@ -19,7 +19,7 @@ for eachRow in raw_data_array:
     #if eachRow[len(eachRow)-1] == '"':
     #    eachRow = eachRow[1:] # removes the first double-quote by returning the string from the 2nd char to the end of the string.
     # Above two "if" statements are replaced by a more versatile version:
-    if re.match('(\"|\').*?(\"|\')', eachRow):
+    if re.match('(\"|\').*?(\"|\')', eachRow): # https://www.guru99.com/python-regular-expressions-complete-tutorial.html#5
         eachRow = eachRow[1:(len(eachRow)-2)] # removes the first and last quotes by returning the string from the 2nd char to the 2nd from end of the string.
     whitespaceSplit.append(eachRow.split(" ")) # split each row into an array delimted by whitespace
 
