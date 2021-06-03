@@ -1,5 +1,5 @@
 ﻿# coding: utf-8
-
+import json
 import re # so you can do regex stuff
 
 myDataPath = "ReferencePages—McMaster-Carr"
@@ -11,8 +11,12 @@ raw_data_array = loaded_file.readlines() # data is read into the raw_data array.
 
 whitespaceSplit = [] # Initialize an empty array
 extraWhitespcPtrn = re.compile('(\"|\').*?(\"|\')')
+withSmblPtrn = re.compile('\s+w\/\s+')
+fixDashesPtrn = re.compile('\s+\-|\-\s+')
 for eachRow in raw_data_array:
-    eachRow = re.sub("\s+"," ",eachRow) # remove double/triple etc spaces and replace with a single space.
+    eachRow = re.sub("\s+"," ",eachRow.lower()) # convert string to LC and remove double/triple etc spaces and replace with a single space
+    eachRow = re.sub(withSmblPtrn," w/",eachRow) # removes spaces between "w/" and the rest of the string.
+    eachRow = re.sub(fixDashesPtrn, "-", eachRow)
     #Section to check for and remove beginning and ending quotes.
     #if eachRow[0] == '"': # If starting char is a quotation mark
     #    eachRow = eachRow[1:] # removes the first double-quote by returning the string from the 2nd char to the end of the string.
@@ -22,6 +26,8 @@ for eachRow in raw_data_array:
     if re.match(extraWhitespcPtrn, eachRow): # https://www.guru99.com/python-regular-expressions-complete-tutorial.html#5
         eachRow = eachRow[1:(len(eachRow)-2)] # removes the first and last quotes by returning the string from the 2nd char to the 2nd from end of the string.
     whitespaceSplit.append(eachRow.split(" ")) # split each row into an array delimted by whitespace
+
+
 
 #####################################################################################
 ###     THE PYTHON DICTIONARY SEEMS EQUIVALENT TO THE JAVASCRIPT MAP() OBJECT     ###
@@ -33,10 +39,17 @@ for eachRow in raw_data_array:
 
 #myStrTemplate = 'Name: {}\nHas a length of {}' # https://www.w3schools.com/python/python_string_formatting.asp
 #print(myStrTemplate.format("long",len("long")))
+wordlist = {} # initialize an empty Python object
+endCommaPtrn = re.compile('.*?\,$')
+for eachRow in whitespaceSplit: # for each row of the row-column array
+#    print(eachRow)
+    for eachCell in eachRow:
+        temp = re.sub(endCommaPtrn, "", eachCell.strip()) # trim leading and trailing whitespaces (just to be safe) and trim any terminal commas.
+        temp = re.sub('"', " inch", temp) # replace the double-quote with the "inch" string
+        try: wordlist[temp] += 1
+        except: wordlist[temp] = 1
 
-for eachEle in whitespaceSplit: 
-    print(eachEle)
-
+print(json.dumps(wordlist, indent=2))
 
 #newlinePattern = re.compile("[\r\n]+") # Counts \r or \n or any combination thereof as a newline pattern.
 ## kindaClean = re.sub(newlinePattern, "", loaded_file) # Delete all newline chars using the above pattern.
