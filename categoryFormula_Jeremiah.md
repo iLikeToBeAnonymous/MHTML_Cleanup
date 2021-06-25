@@ -38,7 +38,7 @@
     regexmatch(L3:L,"(?i)PALLET|PIPE\s+INSULATION|PACKAGING|SHIPPING\s+BRACKET|MAILER|ENVELOPE|(CORRUGATED|CARDBOARD|FILE)\s+BOX|SHRINK(\s|\-)+WRAP|POLY\s+BAG"),"Packaging and Shipping",
     regexmatch(L3:L,"(?i)(SCOTCH|CORRECTION|TEFLON)\s+TAPE|PAPER\s+(CLIP|TOWEL)|PVC\s+CEMENT|TISSUE|NOTE|STAPLE|RUBBER\s+BAND"),"Consumable Supplies",
 
-    regexmatch(L3:L,"(?i)CLAMP\s+MOUNT|DIN\s+|TANK\s+SUPPORT|(SUPPORT|BACK(ING){0,1}|BASE)\s+(ARM|ANGLE|PLATE|BAR)|BRACE"),"Brackets, Armatures, Mounts, and Clamps",
+    regexmatch(L3:L,"(?i)CLAMP\s+MOUNT|DIN\s+|TANK\s+SUPPORT|(SUPPORT|BACK(ING){0,1}|BASE)\s+(ARM|ANGLE|BAR)|BRACE"),"Brackets, Armatures, Mounts, and Clamps",
     regexmatch(L3:L,"(?i)\b(CROSS|CROSSOVER)\s*(BAR|BRACE|BEAM|MEMBER)"),"Brackets, Armatures, Mounts, and Clamps",
     
     
@@ -73,6 +73,9 @@
     regexmatch(L3:L,"(?i)LOOP\s+(CONTROL|STRAP)"),"Electrical",
     regexmatch(L3:L,"(?i)KIT"),"Kits",
     
+
+    regexmatch(L3:L,"(?i)(BACK(ING)?|COVER)\s+PLATE"),"Backing and Cover Plates",
+
     regexmatch(L3:L,"(?i)(PVC|FOAM|WATERFALL).*?TUBE|NIPPLE|\bTEE\b|COUPLING"),"Fluid Storage and Transfer",
     regexmatch(L3:L,"(?i)^HOSE$|TUBING|(FLUID|TUBE|BULKHEAD|\bPLUG\b)\s+FITTINGS?|QUICK\s+DISC|PIPE|SWIVEL\s+FLOW\s+JOINT|\bCAP\b|VICTAULIC"),"Fluid Storage and Transfer",
     regexmatch(L3:L,"(?i)ALIGNMENT\s+TAB|(WALL|RE\-FEED)\s+CLIP|GATE\s+ARM\b|HINGE\s+PIN|GUSSET\s+(PLATE|BAR\b)"),"Brackets, Armatures, Mounts, and Clamps",
@@ -88,9 +91,6 @@
     regexmatch(L3:L,"(?i)CLAMSHELL|BUCKET|BRUSH"),"Self-Serve",
     regexmatch(L3:L,"(?i)BUMPER|IMPACT\s+STRIP"),"Grommets and Trim",
     regexmatch(L3:L,"(?i)COIN\s+(ACCEPTOR|DEFLECTOR)"),"Point of Sale",
-
-    regexmatch(L3:L,"(?i)(BACK(ING)?|COVER)\s+PLATE"),"Backing and Cover Plates",
-
     regexmatch(L3:L,"(?i)\bKEY\b|CRANK|DRIVE\s+SHAFT"),"Transmission (Rotary Motion)",
     regexmatch(L3:L,"(?i)\b(UNI)?STRUT\b"),"Brackets, Armatures, Mounts, and Clamps",
 
