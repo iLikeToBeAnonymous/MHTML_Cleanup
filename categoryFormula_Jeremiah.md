@@ -73,7 +73,7 @@
     regexmatch(L3:L,"(?i)INJECTOR|SPRAYER|AIRKNI(F|V)ES?"),"Injectors, Sprayers, and Nozzles",
 
     regexmatch(L3:L,"(?i)BLOWER|FAN|FUSE|RELAY|CABLE|\bLED\b|HEAT\s+TAPE|HEATER|SERVO\s+DRIVE"),"Electrical",
-    regexmatch(L3:L,"(?i)LOOP\s+(CONTROL|STRAP)|BURIAL\s+LOOP"),"Electrical",
+    regexmatch(L3:L,"(?i)LOOP\s+(CONTROL|STRAP)|BURIAL\s+LOOP|BEAM\s+DEFLECTOR"),"Electrical",
     regexmatch(L3:L,"(?i)KIT"),"Kits",
     
 
@@ -89,7 +89,7 @@
     regexmatch(L3:L,"(?i)SPRING|RETAINER"),"Springs and Retainers",
     regexmatch(L3:L,"(?i)\bNUT\b|WASHER|\bLUG\b|EYEBOLT|\bCOTTER\s+PINS?\b|FERRULE|SET\s+SCREW|SHEAR\s+(BOLTS?|PINS?\b|NUTS?\b)"),"Mechanical Fasteners",
     regexmatch(L3:L,"(?i)BALLAST|\bE(\-|\s+)STOP\b|\bKNOB\b|\bLAMP\b|CONTACT(OR|\s+BLOCK)?|INSULATED\s+WIRE|JUMPER|(SHIELDED|POWER)\s+CORD|CORDSET|\bELECTRIC(AL)?\b"),"Electrical",
-    regexmatch(L3:L,"(?i)BRIDGE\s+(COVER|END)|BOLLARD|BELT\s+GUARD|SIDE\s+PLATE|COVER\s+SUPPORT\s+DISC"),"Body Panels",
+    regexmatch(L3:L,"(?i)BRIDGE\s+(COVER|END)|BOLLARD|BELT\s+GUARD|COVER\s+PANEL|SIDE\s+PLATE|COVER\s+SUPPORT\s+DISC"),"Body Panels",
 
     regexmatch(L3:L,"(?i)ROD(\s|-)+END|KNUCKLE|LINKAGE\s+ARM|TORQUE\s+ARM|TENSION\s+CYLINDER|TOP\s+BEAM|(BRIDGE|MAIN)\s+RAIL"),
         "Structural Frames and Linkages",
@@ -103,21 +103,21 @@
     regexmatch(L3:L,"(?i)COIN\s+(ACCEPTOR|DEFLECTOR)|\bSLUG(\s+)?BUSTER"),"Point of Sale",
     regexmatch(L3:L,"(?i)\bKEY\b|CRANK|(DRIVE|\bSTUB\b)\s+SHAFT"),"Transmission (Rotary Motion)",
 
-    regexmatch(L3:L,"(?i)\b(UNI)?STRUT\b|(\bWELD|SHEAR|SUPPORT|\bT)(\s|\-)+PLATE\b|GUSSET"),"Brackets, Armatures, Mounts, and Clamps",
+    regexmatch(L3:L,"(?i)\b(UNI)?STRUT\b|(\bWELD|SHEAR|SUPPORT|\bT)(\s|\-)+PLATE\b|COVER\s+SUPPORT|GUSSET"),"Brackets, Armatures, Mounts, and Clamps",
 
     regexmatch(L3:L,"(?i)(\bSPLICE|PHOTO\-EYE)\s+PLATE\b"),"Plates with Strategic Holes",
 
     regexmatch(L3:L,"(?i)REPAIR|ANODIZE|(POWDER|CLEAR|EPOXY)\s+COAT|FREIGHT|MACHINING|^PACKAGING$|^ASSEMBLY$|^U\.L\.\s+APPROVED\s+ASSEMBLY$|PURCHASING|RECEIVING|POLISHING|BLASTING|SHIPPING|LOADING|TRANSPORTATION|WELDING"),
         "Labor, Processes, and Services",
 
-    regexmatch(L3:L,"(?i)\bARM\b"), "Structural Frames and Linkages",
+    regexmatch(L3:L,"(?i)\b(ARM|BEAM|BOOM)\b"), "Structural Frames and Linkages",
 
     regexmatch(L3:L,"(?i)SPRAY(ER)?\s+HEAD|NOZZLE|INJECTOR"),"Injectors, Sprayers, and Nozzles",
     regexmatch(L3:L,"(?i)\bPLATE\b"),"Raw Materials and Bar Stock",
     regexmatch(L3:L,"(?i)\bUPS\b|(I\/O\s+END|SERIAL\s+INTERFACE)\s+MODULE"),"Electrical",
     regexmatch(L3:L,"(?i)\bHMI\b|\bSCADA\b"),"Electrical",
 
-    regexmatch(L3:L,"(?i)APPLICATOR\s+SET|COMPLETE\s+MACHINE|\bARCH\b"),
+    regexmatch(L3:L,"(?i)APPLICATOR\s+SET|COMPLETE\s+MACHINE|\bARCH\b|RP\s+SYSTEM"),
         "Assemblies (Catch-all)",
 
     regexmatch(L3:L,"(?i)BATCH\s+ORDER|(MASTER|PARTS)\s+LIST"),"Batch Ordering and Master Lists"
