@@ -45,38 +45,36 @@
     
     regexmatch(L3:L,"(?i)MOTOR\s+STARTER|CIRCUIT\s+BREAKER|CONTROL\s+(PANEL|SYS|BOARD)|OPERATOR|BUTTON|MULTIPLEX\s+CONTROL"),"Electrical",
     
-    regexmatch(L3:L,"(?i)MANIFOLD\s+VALVE"),"Fluid Control 48",
-    regexmatch(L3:L,"(?i)MANIFOLD|PORT\s+BLOCK|CROSSOVER\s+PLUMBING|PLUMBING\s+GROUP|HOSE\s+(BARB|ASSEMBLY|COUPLING|GUARD|MENDER|REDUCER)"),"Fluid Storage and Transfer 49",
-    regexmatch(L3:L,"(?i)PIPE\s+CROSS\s+CONNECTOR|(COIL(ED)*?|\bAIR)\s+HOSE"),"Fluid Storage and Transfer 50",
+    regexmatch(L3:L,"(?i)MANIFOLD\s+VALVE|FLOAT\s+(ARM|BALL)|VALVE|GAUGE|METER|INDICATOR"),"Fluid Control",
     
-    regexmatch(L3:L,"(?i)GAUGE|METER|INDICATOR"),"Fluid Control",
-    regexmatch(L3:L,"(?i)VALVE|FLOAT\s+(ARM|BALL)"),"Fluid Control 53", 
+    regexmatch(L3:L,"(?i)MANIFOLD|PORT\s+BLOCK|CROSSOVER\s+PLUMBING|PLUMBING\s+GROUP|HOSE\s+(BARB|ASSEMBLY|COUPLING|GUARD|MENDER|REDUCER)"),"Fluid Storage and Transfer",
+    regexmatch(L3:L,"(?i)PIPE\s+CROSS\s+CONNECTOR|ELBOW|(COIL(ED)*?|\bAIR)\s+HOSE"),"Fluid Storage and Transfer",
+    
     regexmatch(L3:L,"(?i)\bHYDRA\-CANNON|HYDRADAPTER|HYDROMINDER"),"Fluid Control",
 
     regexmatch(L3:L,"(?i)BRACKET|ARMATURE|MOUNT|CLAMP|GUIDE|BEARING\s+SUPPORT"),"Brackets, Armatures, Mounts, and Clamps",
     regexmatch(L3:L,"(?i)DROP\s+TUBE|TANK|RESERVOIR"),"Fluid Storage and Transfer", 
     
-    regexmatch(L3:L,"(?i)(ROUND|ACCURACY|BEARING\s+SHAFT|THREADED)\s+ROD\b|(RECTANGULAR|HEX(AGONAL)?)\s+BAR\s+STOCK"),"Raw Materials and Bar Stock 58",
+    regexmatch(L3:L,"(?i)(ROUND|ACCURACY|BEARING\s+SHAFT|THREADED)\s+ROD\b|(RECTANGULAR|HEX(AGONAL)?)\s+BAR\s+STOCK"),"Raw Materials and Bar Stock",
 
     regexmatch(L3:L,"(?i)BUSHING|FLANGE|BEARING|\bROLLER\b|GASKET|(O\-|BACK\-UP\s+)RING|SPACER|\bOIL\s+SEAL|\bRED\.\s+BUSH"),
         "Bushings, Flanges, Bearings, Spacers, and Wheels",
 
     regexmatch(L3:L,"(?i)SPROCKET|GEAR|SHEAVE|KEYSTOCK|\bV(\s|\-)*?BELT|KEEPER\s+SHAFT|(SHAFT|MECHANICAL)\s+ADAPTER|WHEEL|CASTER|AXLE"),"Transmission (Rotary Motion)",
     
-    regexmatch(L3:L,"(?i)GROMMET|EDGE\s+TRIM|(FOAM|RUBBER)\s+STRIP"),"Grommets and Trim",
-    
-    regexmatch(L3:L,"(?i)ELBOW"),"Fluid Storage and Transfer",
+    regexmatch(L3:L,"(?i)GROMMET|BUMPER|EDGE\s+TRIM|(FOAM|RUBBER|IMPACT)\s+STRIP"),"Grommets and Trim",
 
     regexmatch(L3:L,"(?i)ENCLOSURE|(JUNCTION|OUTLET)\s+BOX\b|PLC|VFD|COMPUTER|TERMINAL\s+PIN|CORD\s+GRIP|WIRE\s+DUCT|EYE\s+(EMIT|REC|TRANSMIT)|PHOTO(\-|\s+)?EYE\s+HOUSING"),"Electrical",
       
     regexmatch(L3:L,"(?i)MOTOR|STARTER|CONTROL(LER|\s+UNIT)|POWER\s+DISTRIBUTION\s+BLOCK|POWER\s+REGULATOR"),"Electrical",
     regexmatch(L3:L,"(?i)PUMP|BLANKING\s+PLATE\b|REGULATOR|\bFDM\b"),"Fluid Control",
+
     regexmatch(L3:L,"(?i)SOLENOID|ACTUATOR|PULSATION\s+DAMPEN|(FLUID|FLOW|\bAIR|HYDRAULIC)\s+(DIST|CONTR|CYLINDER|RESERVOIR)|\bFLOAT\b|EXHAUST\s+MUFFLER"),"Fluid Control",
     regexmatch(L3:L,"(?i)INJECTOR|SPRAYER|AIRKNI(F|V)ES?"),"Injectors, Sprayers, and Nozzles",
 
     regexmatch(L3:L,"(?i)BLOWER|FAN|FUSE|RELAY|CABLE|\bLED\b|HEAT\s+TAPE|HEATER|SERVO\s+DRIVE"),"Electrical",
     regexmatch(L3:L,"(?i)LOOP\s+CONTROL|(BURIAL|SAW(\-|\s)+CUT)\s+LOOP|BEAM\s+DEFLECTOR"),"Electrical",
-    regexmatch(L3:L,"(?i)KIT"),"Kits",
+    regexmatch(L3:L,"(?i)\bKITS?\b"),"Kits",
     
 
     regexmatch(L3:L,"(?i)(BACK(ING)?|COVER)\s+PLATE|SUPPORT\s+DISC\b|ENTRANCE\s+(COVER\s+)?MAT"),"Backing and Cover Plates",
@@ -87,7 +85,7 @@
 
     regexmatch(L3:L,"(?i)^CHAIN(\s+SET)?$"),"Mechanical Fasteners 87",
 
-    regexmatch(L3:L,"(?i)ROUND\s+STOCK|\bANGLE\b|TUBE|CHANNEL|\bALL\sTHREAD|\bSHEET\b"),"Raw Materials and Bar Stock 89",
+    regexmatch(L3:L,"(?i)ROUND\s+STOCK|\bANGLE\b|TUBE|CHANNEL|\bALL\sTHREAD|\bSHEET\b"),"Raw Materials and Bar Stock",
 
     regexmatch(L3:L,"(?i)MARKER|CRAYON|PENCIL|\bPEN\b|ANTI\-SEIZE|\bGLOVE\b|\bOIL\b|(CONTACT|TOILET)\s+CLEANER|TAPE\b|LUBRICANT|\bPAINT\b|RO\s+GUARD|\bTOWELS?\b"),"Consumable Supplies",
     regexmatch(L3:L,"(?i)SPRING|RETAINER"),"Springs and Retainers",
@@ -100,9 +98,8 @@
 
     regexmatch(L3:L,"(?i)\bSHIM\b|\bSEAL\b"),"Bushings, Flanges, Bearings, Spacers, and Wheels",
 
-
     regexmatch(L3:L,"(?i)CLAMSHELL|BUCKET|BRUSH|SELF(\s|\-)+SERV"),"Self-Serve",
-    regexmatch(L3:L,"(?i)BUMPER|IMPACT\s+STRIP"),"Grommets and Trim",
+    
     regexmatch(L3:L,"(?i)COIN\s+(ACCEPTOR|DEFLECTOR)|\bSLUG(\s+)?BUSTER"),"Point of Sale",
     regexmatch(L3:L,"(?i)\bKEY\b|CRANK|(DRIVE|\bSTUB\b)\s+SHAFT"),"Transmission (Rotary Motion)",
 
@@ -114,14 +111,14 @@
     regexmatch(L3:L,"(?i)REPAIR|ANODIZE|(POWDER|CLEAR|EPOXY)\s+COAT|FREIGHT|MACHINING|^PACKAGING$|^ASSEMBLY$|^U\.L\.\s+APPROVED\s+ASSEMBLY$|PURCHASING|RECEIVING|POLISHING|BLASTING|SHIPPING|LOADING|TRANSPORTATION|WELDING"),
         "Labor, Processes, and Services",
 
-    regexmatch(L3:L,"(?i)\b(ARM|BEAM|BOOM|SUPPORT|WELDMENT)\b"), "Structural Frames and Linkages",
+    regexmatch(L3:L,"(?i)\b(ARM|BEAM|BOOM|SUPPORT)\b"), "Structural Frames and Linkages",
 
     regexmatch(L3:L,"(?i)SPRAY(ER)?\s+HEAD|NOZZLE|INJECTOR"),"Injectors, Sprayers, and Nozzles",
     regexmatch(L3:L,"(?i)\b(PLATE|LUMBER)\b"),"Raw Materials and Bar Stock",
     regexmatch(L3:L,"(?i)\bUPS\b|(I\/O\s+END|SERIAL\s+INTERFACE)\s+MODULE|\bSERVO\b"),"Electrical",
     regexmatch(L3:L,"(?i)\bHMI\b|\bSCADA\b"),"Electrical",
 
-    regexmatch(L3:L,"(?i)APPLICATOR\s+SET|COMPLETE\s+MACHINE|\bARCH\b|RP\s+SYSTEM|FOAM(.+RAIN|.*WATERFALL)|E\-CHAIN|LIGHTED\s+COVER\s+GROUP|ASSEMBLY"),
+    regexmatch(L3:L,"(?i)APPLICATOR\s+SET|COMPLETE\s+MACHINE|\bARCH\b|RP\s+SYSTEM|FOAM(.+RAIN|.*WATERFALL)|E\-CHAIN|LIGHTED\s+COVER\s+GROUP|ASSEMBLY|WELDMENT"),
         "Assemblies (Catch-all)",
 
     regexmatch(L3:L,"(?i)BATCH\s+ORDER|(MASTER|PARTS)\s+LIST"),"Batch Ordering and Master Lists"
